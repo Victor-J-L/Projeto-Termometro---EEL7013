@@ -60,7 +60,8 @@ void tempCovid(){
   digitalWrite(buzzer,LOW);
   delay(110);
   }
-  
+
+ //Leitura do objeto
  void leituraTemp()
  {
     for (int i = 0 ; i<20 ; i++){
@@ -68,13 +69,11 @@ void tempCovid(){
       delay(1); 
     }
     temp_obj/=20.0;
-    temp_obj+= 2.82;
+    temp_obj+= 2.82; //Fator de Correção
   }
 void loop()
 {
   //Leitura da temperatura ambiente e do objeto
-  //(para leitura dos valores em Fahrenheit, utilize
-  //mlx.readAmbientTempF() e mlx.readObjectTempF() )
   temp_amb = mlx.readAmbientTempC();
   temp_obj1 = mlx.readObjectTempC();
   leituraBotao = digitalRead(botao);
